@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 use App\Config\Paths;
+use App\Services\UserService;
 use App\Services\ValidatorService;
+use Framework\Container;
 use Framework\Database;
 use Framework\TemplateEngine;
 
@@ -14,5 +16,9 @@ return [
         'host' => $_ENV['DB_HOST'],
         'port' => $_ENV['DB_PORT'],
         'dbname' => $_ENV['DB_NAME']
-    ], $_ENV['DB_USER'], $_ENV['DB_PASS'])
+    ], $_ENV['DB_USER'], $_ENV['DB_PASS']),
+    UserService::class => function (Container $container) {
+        $db = $container->get(Database::class);
+        return new UserService($db);
+    }
 ];
