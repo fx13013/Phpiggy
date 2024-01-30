@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer class="container mx-auto my-12 text-center">
-    &copy; PHPiggy
+    &copy; PHPiggy 2024
 </footer>
 <!-- End Footer -->
 </body>
